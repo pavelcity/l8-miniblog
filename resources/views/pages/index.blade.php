@@ -55,11 +55,11 @@
 						<a href="{{ route('blog.detail', $blog->slug) }}" class="mb-5 w-3/4">
 							<img src="{{ asset($blog->pic ?? 'uploads/not_image.jpg') }}" alt="">
 						</a>
-						<span class="font-semibold title-font text-gray-700">
+						<a href="{{ route('category.home', $blog->category->slug) }}" class="font-semibold title-font text-indigo-700 hover:text-gray-500">
 							{{ $blog->category->title ?? 'не указано' }}
-						</span>
+						</a>
 						<span class="mt-1 text-gray-500 text-sm">
-							{{ $blog->created_at ?? 'нет даты' }}
+							{{ $blog->created_at->format('d-m-Y') ?? 'нет даты' }}
 						</span>
 
 					</div>

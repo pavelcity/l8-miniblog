@@ -7,8 +7,8 @@
 <section class="text-blueGray-700 ">
 	<div class="container flex flex-col items-center px-5 py-8 mx-auto">
 		<div class="flex flex-col w-full mb-2 text-left lg:text-center">
-			<h1 class="mx-auto mb-1 text-2xl font-semibold leading-none tracking-tighter text-black lg:w-1/2 sm:text-6xl title-font"> Категории </h1>
-
+			<h1 class="mx-auto mb-1 text-2xl font-semibold leading-none tracking-tighter text-black lg:w-1/2 sm:text-6xl title-font"> Категория </h1>
+				<div class="text-indigo-500 text-xl">{{ $category->title ?? 'no-data' }}</div>
 		</div>
 	</div>
 </section>
@@ -22,7 +22,7 @@
 	<div class="flex flex-wrap mb-12 text-left">
 		
 
-		@if(false)
+		@if(true)
 		@forelse($blogs as $blog)
 			<div class="w-full lg:w-1/3">
 				<div class="p-6">

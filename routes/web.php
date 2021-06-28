@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ContactCtontroller;
 use App\Http\Controllers\BlogCtontroller;
+use App\Http\Controllers\CategoryController as Category;
 
 
 
@@ -24,6 +25,11 @@ Route::get('/contact', [ContactCtontroller::class, 'index'])->name('contact.home
 Route::name('blog.')->prefix('blog/')->group(function(){
 	Route::get('', [BlogCtontroller::class, 'index'])->name('home');
 	Route::get('{slug}', [BlogCtontroller::class, 'detail'])->name('detail');
+});
+
+
+Route::name('category.')->prefix('category/')->group(function(){
+	Route::get('{slug}', [Category::class, 'index'])->name('home');
 });
 
 

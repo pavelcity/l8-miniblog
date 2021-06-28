@@ -29,9 +29,9 @@
 					<a href="{{ route('blog.detail', $blog->slug) }}">
 						<img class="object-cover object-center w-full mb-8 lg:h-48 md:h-36" src="{{ asset($blog->pic ?? 'uploads/not_image.jpg') }}" alt="blog">
 					</a>
-					<h2 class="mb-2 text-xs font-semibold tracking-widest text-black uppercase title-font">
+					<a href="{{ route('category.home', $blog->category->slug) }}" class="mb-2 text-xs font-semibold tracking-widest text-black uppercase title-font text-indigo-500 hover:text-gray-500">
 						{{ $blog->category->title ?? 'катгория не указана' }}
-					</h2>
+					</a>
 					
 					<a href="{{ route('blog.detail', $blog->slug) }}">
 						<h1 class="mx-auto mb-4 text-2xl font-semibold leading-none tracking-tighter text-black hover:text-indigo-500 transition lg:text-3xl title-font"> 
