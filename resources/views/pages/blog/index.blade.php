@@ -27,7 +27,7 @@
 			<div class="w-full lg:w-1/3">
 				<div class="p-6">
 					<a href="{{ route('blog.detail') }}">
-						<img class="object-cover object-center w-full mb-8 lg:h-48 md:h-36" src="https://dummyimage.com/720x400/F3F4F7/8693ac" alt="blog">
+						<img class="object-cover object-center w-full mb-8 lg:h-48 md:h-36" src="{{ asset($blog->pic ?? 'uploads/not_image.jpg') }}" alt="blog">
 					</a>
 					<h2 class="mb-2 text-xs font-semibold tracking-widest text-black uppercase title-font">
 						{{ $blog->category->title ?? 'катгория не указана' }}

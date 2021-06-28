@@ -15,7 +15,7 @@
 
 			<nav class="flex flex-wrap items-center justify-center mx-auto text-base md:ml-auto md:mr-auto">
 				<a href="{{ route('home.page') }}" class="{{ Request::is('/') ? 'text-indigo-500 ' : 'text-gray-500' }} px-4 py-1 text-base transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black ">Главная</a>
-				<a href="#" class="px-4 py-1 mr-1 text-base text-blueGray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black ">Блог</a>
+				<a href="{{ route('blog.home') }}" class="{{ Request::is('blog') ? 'text-indigo-500 ' : 'text-gray-500' }} px-4 py-1 mr-1 text-base  transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black ">Блог</a>
 				<a href="{{ route('contact.home') }}" class="{{ Request::is('contact') ? 'text-indigo-500 ' : 'text-gray-500' }} px-4 py-1 mr-1 text-base transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black ">Контакты</a>
 				
 			</nav>

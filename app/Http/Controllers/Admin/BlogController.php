@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Blog;
+use Image;
 
 class BlogController extends Controller
 {
@@ -26,6 +27,8 @@ class BlogController extends Controller
 
 
 
+
+
 	#store
 	public function store (Request $request) {
 		$this->validate($request, [
@@ -38,6 +41,32 @@ class BlogController extends Controller
 
 
 		$blog = new Blog;
+
+		$pic = $request->file('pic');
+
+
+		// **
+		if(isset($pic)) {
+			$filenamepic = hexdec(uniqid()) . '.' . $pic->getClientOriginalExtension();
+
+			Image::make($pic)->resize(750, null, function ($constraint) {
+				$constraint->aspectRatio();
+			})->save('uploads/blog/' . $filenamepic);
+		}
+
+
+		// **
+		if(isset($pic)) {
+			$picture = 'uploads/blog/' . $filenamepic;
+		}
+
+
+		// **
+		if(isset($picture)) {
+			$blog->pic = $picture;
+		}
+
+
 
 		$blog->category_id = $request->category_id;
 		$blog->title = $request->title;
@@ -76,9 +105,33 @@ class BlogController extends Controller
 			'title.required' => 'обязательное поле',
 		]);
 
-
+ 
 
 		$blog = Blog::find($id);
+
+		$pic = $request->file('pic');
+		$oldpic = $request->oldpic;
+
+
+		// **
+		if(isset($pic)) {
+			$filename = hexdec(uniqid()) . '.' . $pic->getClientOriginalExtension();
+			$picture = 'uploads/blog/' . $filename;
+
+			if(isset($oldpic)) {
+				unlink($oldpic);
+			}
+
+			$blog->update([
+				'pic' => $picture
+			]);
+
+			Image::make($pic)->resize(750, null, function ($constraint) {
+				$constraint->aspectRatio();
+			})->save('uploads/blog/' . $filename);
+		}
+
+
 
 
 		$blog->update([
@@ -101,6 +154,14 @@ class BlogController extends Controller
 	#delete
 	public function delete ($id) {
 		$blog = Blog::find($id);
+
+
+		$delpic = $blog->pic;
+
+		if(isset($delpic)) {
+			unlink($delpic);
+		}
+
 		$blog->delete();
 
 		return redirect()->route('dashboard.blog.home');

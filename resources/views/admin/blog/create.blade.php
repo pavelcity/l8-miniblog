@@ -119,7 +119,7 @@
 									<div class="input-group-prepend">	<span class="input-group-text" id="pic">Картинка</span>
 									</div>
 									<div class="custom-file">
-										<input type="file" name="pic400_1" class="custom-file-input " id="avatar" aria-describedby="avatar">
+										<input type="file" name="pic" class="custom-file-input " id="avatar" aria-describedby="avatar">
 										<label class="custom-file-label" for="avatar">Выберите файл</label>
 									</div>
 									

@@ -19,8 +19,8 @@
       </h1>
       <p class="mb-8 leading-relaxed">Издавна новости распространялись, зачастую в искажённом виде, как слухи, от человека к человеку. Официальные новости в древности доставляли гонцы, объявляли их для всеобщего сведения глашатаи. </p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Блог</button>
-        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Контакты</button>
+        <a href="{{ route('blog.home') }}" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Блог</a>
+        <a href="{{ route('contact.home') }}" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Контакты</a>
       </div>
     </div>
   </div>
@@ -58,6 +58,9 @@
 						<span class="mt-1 text-gray-500 text-sm">
 							{{ $blog->created_at ?? 'нет даты' }}
 						</span>
+						<div class="mt-5 w-3/4">
+							<img src="{{ asset($blog->pic ?? 'uploads/not_image.jpg') }}" alt="">
+						</div>
 					</div>
 					<div class="md:flex-grow">
 						<h2 class="text-2xl font-medium text-gray-900 title-font mb-2">

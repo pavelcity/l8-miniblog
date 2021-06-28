@@ -76,7 +76,7 @@
 					<tr>
 						<th scope="row">{{ $i++ }}</th>
 						<td>{{ $item->title ?? 'нет данных' }}</td>
-						<td><img width="120" src="{{ asset($item->pic400_1 ?? 'uploads/not_image.jpg') }}" alt=""></td>
+						<td><img width="120" src="{{ asset($item->pic ?? 'uploads/not_image.jpg') }}" alt=""></td>
 
 						<td>{{ $item->category->title ?? 'нет категории' }}</td>
 						
