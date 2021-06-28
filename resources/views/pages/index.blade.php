@@ -52,15 +52,16 @@
 			@forelse($blogs as $blog)
 				<div class="py-8 flex flex-wrap md:flex-nowrap">
 					<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+						<a href="{{ route('blog.detail', $blog->slug) }}" class="mb-5 w-3/4">
+							<img src="{{ asset($blog->pic ?? 'uploads/not_image.jpg') }}" alt="">
+						</a>
 						<span class="font-semibold title-font text-gray-700">
 							{{ $blog->category->title ?? 'не указано' }}
 						</span>
 						<span class="mt-1 text-gray-500 text-sm">
 							{{ $blog->created_at ?? 'нет даты' }}
 						</span>
-						<div class="mt-5 w-3/4">
-							<img src="{{ asset($blog->pic ?? 'uploads/not_image.jpg') }}" alt="">
-						</div>
+
 					</div>
 					<div class="md:flex-grow">
 						<h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
@@ -69,7 +70,7 @@
 						<p class="leading-relaxed">
 							{!! $blog->short ?? 'no-data' !!}
 						</p>
-						<a href="{{ route('blog.detail') }}" class="text-indigo-500 inline-flex items-center mt-4">Читать
+						<a href="{{ route('blog.detail', $blog->slug) }}" class="text-indigo-500 inline-flex items-center mt-4">Читать
 							<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M5 12h14"></path>
 								<path d="M12 5l7 7-7 7"></path>

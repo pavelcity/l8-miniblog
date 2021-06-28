@@ -1,5 +1,5 @@
 @extends('layouts.site')
-@section('title', 'Блог')
+@section('title', 'Категории')
 
 
 @section('content')
@@ -7,7 +7,7 @@
 <section class="text-blueGray-700 ">
 	<div class="container flex flex-col items-center px-5 py-8 mx-auto">
 		<div class="flex flex-col w-full mb-2 text-left lg:text-center">
-			<h1 class="mx-auto mb-1 text-2xl font-semibold leading-none tracking-tighter text-black lg:w-1/2 sm:text-6xl title-font"> Блог </h1>
+			<h1 class="mx-auto mb-1 text-2xl font-semibold leading-none tracking-tighter text-black lg:w-1/2 sm:text-6xl title-font"> Категории </h1>
 
 		</div>
 	</div>
@@ -22,7 +22,7 @@
 	<div class="flex flex-wrap mb-12 text-left">
 		
 
-
+		@if(false)
 		@forelse($blogs as $blog)
 			<div class="w-full lg:w-1/3">
 				<div class="p-6">
@@ -48,6 +48,7 @@
 		@empty
 			<p class="mx-auto text center text-xl">ничего нет</p>
 		@endforelse
+		@endif
 		
 
 

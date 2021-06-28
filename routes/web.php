@@ -23,7 +23,7 @@ Route::get('/contact', [ContactCtontroller::class, 'index'])->name('contact.home
 
 Route::name('blog.')->prefix('blog/')->group(function(){
 	Route::get('', [BlogCtontroller::class, 'index'])->name('home');
-	Route::get('/detail', [BlogCtontroller::class, 'detail'])->name('detail');
+	Route::get('{slug}', [BlogCtontroller::class, 'detail'])->name('detail');
 });
 
 

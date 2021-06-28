@@ -16,7 +16,8 @@ class BlogCtontroller extends Controller
 
 
 	#detail
-	public function detail () {
-		return view ('pages.blog.detail');
+	public function detail ($slug) {
+		$blog = Blog::where('slug', $slug)->firstOrFail();
+		return view ('pages.blog.detail', compact('blog'));
 	}
 }

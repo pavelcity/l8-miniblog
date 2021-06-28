@@ -9,7 +9,8 @@ use App\Models\Category;
 
 class Blog extends Model
 {
-    use HasFactory; 
+    use HasFactory;  
+		use Sluggable;
 
 		public function sluggable(): array
     {
